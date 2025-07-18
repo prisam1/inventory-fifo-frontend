@@ -30,7 +30,7 @@ const SimulateTransactions: React.FC<SimulateTransactionsProps> = ({ onEventSent
       }
     };
     fetchProducts();
-  }, []);  
+  }, [getProductsApi]);  
 
   useEffect(() => {
     if (sendEventApi.error) {
