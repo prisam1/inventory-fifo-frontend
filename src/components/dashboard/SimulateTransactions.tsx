@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import React, { useState, useEffect } from 'react';
 import useApi from '../../hooks/useApi';
 import * as inventoryApi from '../../api/inventory';
 import * as productsApi from '../../api/products';
