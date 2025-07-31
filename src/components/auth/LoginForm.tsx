@@ -15,8 +15,10 @@ const LoginForm: React.FC = () => {
     const success = await login({ username, password });
     if (success) {
       navigate('/dashboard');
+      alert("Login successfully!");
     } else {
       setError('Invalid username or password.');
+      alert("Invalid username or password.!");
     }
   };
 

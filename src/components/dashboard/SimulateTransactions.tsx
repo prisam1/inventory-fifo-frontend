@@ -6,7 +6,7 @@ import { InventoryEventType, Product } from '../../types';
 import Spinner from '../common/Spinner';
 
 interface SimulateTransactionsProps {
-  onEventSent: () => void;  
+  onEventSent: () => void;
 }
 
 const SimulateTransactions: React.FC<SimulateTransactionsProps> = ({ onEventSent }) => {
@@ -25,21 +25,22 @@ const SimulateTransactions: React.FC<SimulateTransactionsProps> = ({ onEventSent
     const fetchProducts = async () => {
       const prods = await getProductsApi.callApi();
       if (prods && prods.length > 0) {
-        setProductId(prods[0].product_id);  
+        setProductId(prods[0].product_id);
         setProducts(prods);
       }
     };
     fetchProducts();
-  }, [getProductsApi]);  
+  }, []);
 
   useEffect(() => {
     if (sendEventApi.error) {
       setMessage(`Error: ${sendEventApi.error.response?.data?.message || sendEventApi.error.message}`);
     } else if (sendEventApi.data) {
       setMessage('Event sent successfully!');
-      setQuantity(1);  
-      setUnitPrice(0);  
-      onEventSent();  
+      alert("Event sent successfully!")
+      setQuantity(1);
+      setUnitPrice(0);
+      onEventSent();
     }
   }, [sendEventApi.data, sendEventApi.error, onEventSent]);
 
@@ -76,9 +77,10 @@ const SimulateTransactions: React.FC<SimulateTransactionsProps> = ({ onEventSent
         timestamp: new Date().toISOString(),
       };
       await inventoryApi.sendInventoryEvent(event); // Call directly without useApi hook to chain
-      await new Promise(resolve => setTimeout(resolve, 500)); 
+      await new Promise(resolve => setTimeout(resolve, 500));
     }
     setMessage('Random events simulated!');
+    alert('Random events simulated!');
     onEventSent();
   };
 

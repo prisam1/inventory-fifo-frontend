@@ -17,6 +17,7 @@ const DashboardPage: React.FC = () => {
   const handleLogout = () => {
     logout();
     navigate('/login');
+    alert("Logout successfully!")
   };
 
   return (
