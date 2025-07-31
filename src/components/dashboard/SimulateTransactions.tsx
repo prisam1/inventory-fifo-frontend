@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import useApi from '../../hooks/useApi';
 import * as inventoryApi from '../../api/inventory';
 import * as productsApi from '../../api/products';
@@ -18,7 +18,8 @@ const SimulateTransactions: React.FC<SimulateTransactionsProps> = ({ onEventSent
   const [products, setProducts] = useState<Product[]>([]);
 
   const sendEventApi = useApi(inventoryApi.sendInventoryEvent);
-  const getProductsApi = useApi(productsApi.getProducts);
+  //const getProductsApi = useApi(productsApi.getProducts);
+  const getProductsApi = useMemo(() => useApi(productsApi.getProducts), []);
 
   useEffect(() => {
     // Fetch products to populate dropdown
