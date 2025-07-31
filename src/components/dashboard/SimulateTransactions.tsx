@@ -18,9 +18,8 @@ const SimulateTransactions: React.FC<SimulateTransactionsProps> = ({ onEventSent
   const [products, setProducts] = useState<Product[]>([]);
 
   const sendEventApi = useApi(inventoryApi.sendInventoryEvent);
-  //const getProductsApi = useApi(productsApi.getProducts);
-  const getProductsApi = useMemo(() => useApi(productsApi.getProducts), []);
-
+  const getProductsApi = useApi(productsApi.getProducts);
+  
   useEffect(() => {
     // Fetch products to populate dropdown
     const fetchProducts = async () => {
@@ -31,7 +30,7 @@ const SimulateTransactions: React.FC<SimulateTransactionsProps> = ({ onEventSent
       }
     };
     fetchProducts();
-  }, []);
+  }, [getProductsApi.data, getProductsApi.callApi]);
 
   useEffect(() => {
     if (sendEventApi.error) {
