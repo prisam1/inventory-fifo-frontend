@@ -1,10 +1,8 @@
 # Live - https://inventoryfifo.netlify.app/
 
-# DEMO 
-# -------------------------
+# DEMO  
   username : Pritam
-  password : Pritamsam1
-# -------------------------
+  password : Pritamsam1 
 
 # FIFO Inventory Management System with Kafka
 A real-time FIFO Inventory Management System built using Node.js, Kafka, and PostgreSQL for the backend, and React + Tailwind CSS for the frontend. It allows businesses to handle inventory purchase and sale events using First-In-First-Out logic for accurate stock and pricing calculations.
