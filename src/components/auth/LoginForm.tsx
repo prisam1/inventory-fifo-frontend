@@ -34,6 +34,7 @@ const LoginForm: React.FC = () => {
     } else {
       setError('username', { type: 'manual', message: 'Invalid username or password' });
       setError('password', { type: 'manual', message: 'Invalid username or password' });
+      toast.success("Login Failed!");
     }
   };
 
@@ -51,11 +52,7 @@ const LoginForm: React.FC = () => {
             name="username"
             control={control}
             rules={{
-              required: 'Username is required',
-              minLength: {
-                value: 5,
-                message: 'Username must be at least 5 characters',
-              },
+              required: 'Username is required'
             }}
             render={({ field }) => (
               <>
@@ -83,10 +80,6 @@ const LoginForm: React.FC = () => {
             control={control}
             rules={{
               required: 'Password is required',
-              minLength: {
-                value: 5,
-                message: 'Password must be at least 5 characters',
-              },
             }}
             render={({ field }) => (
               <>
