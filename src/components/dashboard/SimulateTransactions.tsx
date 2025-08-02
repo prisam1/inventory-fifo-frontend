@@ -4,6 +4,7 @@ import * as inventoryApi from '../../api/inventory';
 import * as productsApi from '../../api/products';
 import { InventoryEventType, Product } from '../../types';
 import Spinner from '../common/Spinner';
+import { toast } from 'sonner';
 
 interface SimulateTransactionsProps {
   onEventSent: () => void;
@@ -39,7 +40,7 @@ const SimulateTransactions: React.FC<SimulateTransactionsProps> = ({ onEventSent
       setMessage(`Error: ${sendEventApi.error.response?.data?.message || sendEventApi.error.message}`);
     } else if (sendEventApi.data) {
       setMessage('Event sent successfully!');
-      alert("Event sent successfully!")
+      toast.success("Event sent successfully!");
       setQuantity(1);
       setUnitPrice(0);
       onEventSent();
@@ -82,7 +83,8 @@ const SimulateTransactions: React.FC<SimulateTransactionsProps> = ({ onEventSent
       await new Promise(resolve => setTimeout(resolve, 500));
     }
     setMessage('Random events simulated!');
-    alert('Random events simulated!');
+    toast.success('Random events simulated!');
+
     onEventSent();
   };
 

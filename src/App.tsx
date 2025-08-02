@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage';
 import DashboardPage from './pages/DashboardPage';
 import ProtectedRoute from './components/common/ProtectedRoute';
 import Spinner from './components/common/Spinner';
+import { Toaster } from 'sonner';
 
 function AppContent() {
   const { authState } = useAuth();
@@ -22,7 +23,7 @@ function AppContent() {
       {/* Redirect authenticated users from root to dashboard, others to login */}
       <Route path="/" element={authState.isAuthenticated ? <Navigate to="/dashboard" replace /> : <Navigate to="/login" replace />} />
       <Route path="*" element={<Navigate to="/" replace />} />
-    </Routes> 
+    </Routes>
   );
 }
 
@@ -31,6 +32,7 @@ const App: React.FC = () => {
     <Router>
       <AuthProvider>
         <AppContent />
+        <Toaster position="top-center" richColors theme="dark" />
       </AuthProvider>
     </Router>
   );

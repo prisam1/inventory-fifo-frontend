@@ -6,10 +6,12 @@
     "axios": "^1.10.0",
     "lucide-react": "^0.509.0",
     "prettier": "^3.4.2",
-    "react": "^19.0.0", 
-    "react-dom": "^19.0.0",  
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.62.0",
     "react-router-dom": "^7.7.0",
     "react-scripts": "5.0.1",
+    "sonner": "^2.0.6",
     "web-vitals": "^4.2.4"
   },
   "scripts": {
@@ -37,7 +39,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react": "^19.0.0",  
+    "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@types/three": "^0.176.0",
     "autoprefixer": "^10.4.20",

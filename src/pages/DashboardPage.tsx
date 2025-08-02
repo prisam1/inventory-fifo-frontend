@@ -4,6 +4,8 @@ import TransactionLedger from '../components/dashboard/TransactionLedger';
 import SimulateTransactions from '../components/dashboard/SimulateTransactions';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'sonner';
+
 
 const DashboardPage: React.FC = () => {
   const { authState, logout } = useAuth();
@@ -17,7 +19,7 @@ const DashboardPage: React.FC = () => {
   const handleLogout = () => {
     logout();
     navigate('/login');
-    alert("Logout successfully!")
+    toast.success("Logout successfully!"); 
   };
 
   return (
